@@ -1,0 +1,57 @@
+#  Grupo 7
+#  Fila de atendimento para suporte/venda de software
+#
+!PARAMETERS
+arrivals: 
+   Q1: 3.0
+
+queues: 
+   Q1: 
+      servers: 4
+      capacity: 9
+      minArrival: 3.0
+      maxArrival: 10.0
+      minService: 15.0
+      maxService: 30.0
+   Q2: 
+      servers: 2
+      capacity: 5
+      minService: 15.0
+      maxService: 120.0
+   Q3: 
+      servers: 3
+      capacity: 7
+      minService: 10.0
+      maxService: 60.0
+   Q4: 
+      servers: 2
+      minService: 3.0
+      maxService: 6.0
+
+network: 
+-  source: Q1
+   target: Q2
+   probability: 0.20
+-  source: Q1
+   target: Q3
+   probability: 0.80
+-  source: Q2
+   target: Q1
+   probability: 0.20
+-  source: Q3
+   target: Q2
+   probability: 0.10
+-  source: Q2
+   target: Q4
+   probability: 0.80
+-  source: Q3
+   target: Q4
+   probability: 0.90
+
+rndnumbersPerSeed: 1000
+seeds: 
+- 1
+- 2
+- 3
+- 4
+- 5
