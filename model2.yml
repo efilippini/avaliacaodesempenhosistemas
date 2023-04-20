@@ -1,0 +1,57 @@
+#  Grupo 7
+#  Fila de atendimento para suporte/venda de software
+#
+!PARAMETERS
+rndnumbersPerSeed: 100000
+seeds: 
+- 1
+- 2
+- 3
+- 4
+- 5
+
+arrivals: 
+   Q1: 3.0
+
+queues: 
+   Q1: 
+      servers: 2
+      capacity: 6
+      minArrival: 3.0
+      maxArrival: 10.0
+      minService: 5.0
+      maxService: 10.0
+   Q2: 
+      servers: 3
+      capacity: 9
+      minService: 10.0
+      maxService: 60.0
+   Q3: 
+      servers: 5
+      capacity: 15
+      minService: 10.0
+      maxService: 60.0
+   Q4: 
+      servers: 1
+      minService: 3.0
+      maxService: 6.0
+
+network: 
+-  source: Q1
+   target: Q2
+   probability: 0.20
+-  source: Q1
+   target: Q3
+   probability: 0.80
+-  source: Q2
+   target: Q1
+   probability: 0.20
+-  source: Q2
+   target: Q4
+   probability: 0.80
+-  source: Q3
+   target: Q2
+   probability: 0.10
+-  source: Q3
+   target: Q4
+   probability: 0.90
